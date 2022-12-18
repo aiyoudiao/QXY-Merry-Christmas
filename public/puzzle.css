@@ -1,0 +1,223 @@
+@font-face {
+  font-family: "Fontdiner Swanky";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./ijwOs4XgRNsiaI5-hcVb4hQgMvCD0uYVKwOs1to.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #111;
+  color: #fefefe;
+  font-family: "Fontdiner Swanky", cursive;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.puzzle-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  visibility: hidden;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle {
+  /* background: linear-gradient(hsl(360, 98%, 36%), hsl(360, 92%, 42%)),
+    url(img/1.jpg); */
+  background-blend-mode: multiply;
+  width: 90vw;
+  max-width: 400px;
+  box-shadow: 0 0.25em 1em 0 rgba(0, 0, 0, 0.3),
+    inset 0.25em 0.25em 1em 0 hsl(360, 88%, 72%),
+    inset 0.15em 0.15em 0.2em 0 hsl(360, 88%, 72%),
+    inset -0.25em -0.25em 1em 0 hsl(360, 88%, 22%),
+    inset -0.15em -0.15em 0.2em 0 hsl(360, 88%, 2%);
+  border-radius: 1.2em;
+  padding: 1.4em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+.puzzle.transparent {
+  box-shadow: none;
+}
+
+.puzzle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  transform: rotate(-15deg) scale(2);
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.12)
+  );
+}
+
+.puzzle.transparent::after {
+  background: transparent;
+}
+
+.puzzle > * {
+  z-index: 1;
+}
+
+.grid {
+  border: 2px solid hsl(360, 98%, 12%);
+  grid-column-end: span 3;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-areas: "A B C" "D E F" "G H I";
+  background: hsl(360, 98%, 12%);
+  box-shadow: inset 0 0 2em 0 hsl(360, 98%, 2%);
+}
+
+.grid.transparent {
+  background: transparent;
+  border: none;
+}
+
+.tile,
+.answer {
+  height: 0;
+  padding-bottom: 100%;
+  grid-area: var(--area, auto);
+  border: none;
+  background: url(https://source.unsplash.com/900x900/?christmas,holiday,festive);
+  background-size: 300%;
+}
+
+.tile.my-love,
+.answer.my-love {
+  background-image: url(./my-love.jpeg);
+}
+
+.tile {
+  cursor: pointer;
+}
+
+.tile--empty {
+  cursor: auto;
+}
+
+.tile:focus {
+  outline: 2px solid hsl(360, 98%, 42%);
+}
+
+.tile[disabled] {
+  cursor: not-allowed;
+}
+
+.answer {
+  grid-column-end: span 1;
+  width: 100%;
+  justify-self: flex-end;
+  background-size: 100%;
+  box-shadow: inset 0 0 0 0.2em hsl(360, 90%, 26%);
+}
+
+.tile--empty {
+  background: transparent !important;
+}
+
+.tile--1 {
+  background-position: top left;
+}
+
+.tile--2 {
+  background-position: top center;
+}
+
+.tile--3 {
+  background-position: top right;
+}
+
+.tile--4 {
+  background-position: center left;
+}
+
+.tile--5 {
+  background-position: center;
+}
+
+.tile--6 {
+  background-position: center right;
+}
+
+.tile--7 {
+  background-position: bottom left;
+}
+
+.tile--8 {
+  background-position: bottom center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.heading span {
+  font-size: 1em;
+  line-height: 2.4em;
+}
+
+.heading {
+  align-self: center;
+  grid-column-end: span 2;
+  text-align: center;
+  text-shadow: 0 -1px 0 hsl(360, 90%, 26%);
+  transform: skew(-10deg) rotate(-6deg);
+}
+
+@-webkit-keyframes popIn {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: scale(0.6);
+    transition: opacity, scale, 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: scale(0.6);
+    transition: opacity, scale, 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+p {
+  padding: 0 1em;
+  text-align: center;
+}
+
+a {
+  color: white;
+}

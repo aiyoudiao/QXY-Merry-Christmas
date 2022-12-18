@@ -1,0 +1,30 @@
+{
+  "name": "qxy-merry-christmas",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Christmas time to play with toys, there are a Christmas tree 🎄, music 🎵, jigsaw 🧩, snowflake ❄️. 一个圣诞节的时候玩的玩具，有圣诞树🎄、音乐🎵、拼图🧩、雪花❄️。",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/aiyoudiao/QXY-Merry-Christmas/issues"
+  },
+  "homepage": "https://aiyoudiao.github.io/QXY-Merry-Christmas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiyoudiao/QXY-Merry-Christmas.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0",
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "animate-css-grid": "^1.4.3"
+  }
+}
