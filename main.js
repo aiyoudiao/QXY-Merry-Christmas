@@ -102,7 +102,9 @@ window.addEventListener("load", function () {
         document.querySelector(item).classList.add("transparent");
       });
     } else {
-      document.querySelector(item).classList.remove("transparent");
+      transparentList.forEach((item) => {
+        document.querySelector(item).classList.remove("transparent");
+      });
     }
 
     if (hash.includes("#my-love")) {
