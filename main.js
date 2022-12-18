@@ -85,36 +85,34 @@ window.addEventListener("load", function () {
   const transparentList = [".puzzle", ".grid"];
   let hash = window.location.hash;
 
-  if (hash) {
-    if (hash.includes("#xq")) {
-      document.querySelector("#xq").innerHTML = "XQ Merry Christmas";
-    }
+  if (hash.includes("#xq")) {
+    document.querySelector("#xq").innerHTML = "XQ Merry Christmas";
+  }
 
-    if (!hash.includes("#music")) {
-      const musicListEntity = [...document.querySelectorAll("#musicList>li")];
-      musicListEntity
-        .slice(1, musicListEntity.length - 1)
-        .forEach((item) => item.remove());
-    }
+  if (!hash.includes("#music")) {
+    const musicListEntity = [...document.querySelectorAll("#musicList>li")];
+    musicListEntity
+      .slice(1, musicListEntity.length - 1)
+      .forEach((item) => item.remove());
+  }
 
-    if (hash.includes("#transparent")) {
-      transparentList.forEach((item) => {
-        document.querySelector(item).classList.add("transparent");
-      });
-    } else {
-      transparentList.forEach((item) => {
-        document.querySelector(item).classList.remove("transparent");
-      });
-    }
+  if (hash.includes("#transparent")) {
+    transparentList.forEach((item) => {
+      document.querySelector(item).classList.add("transparent");
+    });
+  } else {
+    transparentList.forEach((item) => {
+      document.querySelector(item).classList.remove("transparent");
+    });
+  }
 
-    if (hash.includes("#my-love")) {
-      document.querySelectorAll(".tile,.answer").forEach((item) => {
-        item.classList.add("my-love");
-      });
-    } else {
-      document.querySelectorAll(".tile,.answer").forEach((item) => {
-        item.classList.remove("my-love");
-      });
-    }
+  if (hash.includes("#my-love")) {
+    document.querySelectorAll(".tile,.answer").forEach((item) => {
+      item.classList.add("my-love");
+    });
+  } else {
+    document.querySelectorAll(".tile,.answer").forEach((item) => {
+      item.classList.remove("my-love");
+    });
   }
 });
