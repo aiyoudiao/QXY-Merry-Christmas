@@ -91,8 +91,10 @@ window.addEventListener("load", function () {
     }
 
     if (!hash.includes("#music")) {
-      const musicList = [...document.querySelectorAll("#musicList>li")];
-      musicList.slice(1, musicList.length - 1).forEach((item) => item.remove());
+      const musicListEntity = [...document.querySelectorAll("#musicList>li")];
+      musicListEntity
+        .slice(1, musicListEntity.length - 1)
+        .forEach((item) => item.remove());
     }
 
     if (hash.includes("#transparent")) {
